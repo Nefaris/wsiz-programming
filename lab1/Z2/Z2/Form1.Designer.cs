@@ -141,7 +141,7 @@ namespace Z2 {
       this.comaButton.Name = "comaButton";
       this.comaButton.Size = new System.Drawing.Size(40, 40);
       this.comaButton.TabIndex = 9;
-      this.comaButton.Text = ".";
+      this.comaButton.Text = ",";
       this.comaButton.UseVisualStyleBackColor = true;
       this.comaButton.Click += new System.EventHandler(this.comaButton_Click);
       // 

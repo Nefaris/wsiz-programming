@@ -62,7 +62,17 @@ namespace Z2 {
     }
 
     private void comaButton_Click(object sender, EventArgs e) {
-      resultInput.Text = resultInput.Text += ".";
+      if (this.operation == Operation.NONE)  {
+        if (!this.num1.Contains(",")) {
+          this.num1 += ",";
+        }
+      } else {
+        if (!this.num2.Contains(",")) {
+          this.num2 += ",";
+        }
+      }
+
+      this.updateDisplay();
     }
 
     private void operationButtonAdd_Click(object sender, EventArgs e) {
@@ -85,6 +95,13 @@ namespace Z2 {
       this.updateDisplay();
     }
 
+    private void operationButtonClear_Click(object sender, EventArgs e) {
+      this.operation = Operation.NONE;
+      resultInput.Text = "";
+      this.num1 = "";
+      this.num2 = "";
+    }
+
     private void operationButtonCalculate_Click(object sender, EventArgs e) {
       if (this.num1 == "") {
         MessageBox.Show("Provide any number", "Error", MessageBoxButtons.OK);
@@ -101,8 +118,8 @@ namespace Z2 {
         return;
       }
 
-      double parsed1 = Double.Parse(this.num1);
-      double parsed2 = Double.Parse(this.num2);
+      double parsed1 = double.Parse(this.num1);
+      double parsed2 = double.Parse(this.num2);
       string result = "";
 
       switch (this.operation) {
@@ -128,13 +145,6 @@ namespace Z2 {
       this.num1 = result;
       this.num2 = "";
       this.operation = Operation.NONE;
-    }
-
-    private void operationButtonClear_Click(object sender, EventArgs e) {
-      this.operation = Operation.NONE;
-      resultInput.Text = "";
-      this.num1 = "";
-      this.num2 = "";
     }
 
     private void updateInputs(string number) {
