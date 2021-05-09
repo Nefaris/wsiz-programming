@@ -140,6 +140,8 @@ namespace Z2 {
     private void updateInputs(string number) {
       if (this.operation == Operation.NONE) {
         this.num1 += number;
+      } else if (number == "0" && this.operation == Operation.DIVIDE) {
+        MessageBox.Show("You can not divide by zero", "Error", MessageBoxButtons.OK);
       } else {
         this.num2 += number;
       }
